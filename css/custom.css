@@ -1,2 +1,40 @@
 
 /** ADD YOUR AWESOME CODES HERE **/
+
+.theme-list {
+    position: relative;
+    padding-left: 30px;
+    list-style: none;
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+.theme-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 9px;
+    margin: auto;
+    width: 1px;
+    height: 85%;
+    background-color: #cacdd6;
+    z-index: -1;
+}
+
+.theme-list li {
+    display: block;
+    margin: 5px 0;
+}
+
+.theme-list li::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    margin: 6px 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #888;
+}
