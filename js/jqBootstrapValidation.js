@@ -37,13 +37,13 @@
 
         var $siblingElements = this;
 
-        var uniqueForms = $.unique(
+        var uniqueForms = $.uniqueSort(
           $siblingElements.map(function() {
             return $(this).parents("form")[0];
           }).toArray()
         );
 
-        $(uniqueForms).bind("submit", function(e) {
+        $(uniqueForms).on("submit", function(e) {
           var $form = $(this);
           var warningsFound = 0;
           var $inputs = $form.find("input,textarea,select").not("[type=submit],[type=image]").filter(settings.options.filter);
@@ -247,7 +247,7 @@
             });
 
             // Remove duplicate validator names
-            validatorNames = $.unique(validatorNames);
+            validatorNames = $.uniqueSort(validatorNames);
 
             // Pull out the new validator names from each shortcut
             newValidatorNamesToInspect = [];
@@ -396,7 +396,7 @@
           //                                                    VALIDATION
           // =============================================================
 
-          $this.bind(
+          $this.on(
             "validation.validation",
             function(event, params) {
 
@@ -419,7 +419,7 @@
             }
           );
 
-          $this.bind(
+          $this.on(
             "getValidators.validation",
             function() {
               return validators;
@@ -429,7 +429,7 @@
           // =============================================================
           //                                             WATCH FOR CHANGES
           // =============================================================
-          $this.bind(
+          $this.on(
             "submit.validation",
             function() {
               return $this.triggerHandler("change.validation", {
@@ -437,7 +437,7 @@
               });
             }
           );
-          $this.bind(
+          $this.on(
             [
               "keyup",
               "focus",
@@ -468,7 +468,7 @@
 
               $form.find("input,select,textarea").not($this).not("[name=\"" + $this.attr("name") + "\"]").trigger("validationLostFocus.validation");
 
-              errorsFound = $.unique(errorsFound.sort());
+              errorsFound = $.uniqueSort(errorsFound.sort());
 
               // Were there any errors?
               if (errorsFound.length) {
@@ -498,7 +498,7 @@
               }
             }
           );
-          $this.bind("validationLostFocus.validation", function() {
+          $this.on("validationLostFocus.validation", function() {
             $controlGroup.removeClass("success");
           });
         });
@@ -514,7 +514,7 @@
               $helpBlock = $controlGroup.find(".help-block").first();
 
             // remove our events
-            $this.unbind('.validation'); // events are namespaced.
+            $this.off('.validation'); // events are namespaced.
             // reset help text
             $helpBlock.html($helpBlock.data("original-contents"));
             // reset classes

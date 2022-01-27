@@ -125,7 +125,7 @@
 
     // CONTACT
     jQuery(document).ready(function() {
-        $('#contactform').submit(function() {
+        $('#contactform').on("submit", function() {
             var action = $(this).attr('action');
             $("#message").slideUp(750, function() {
                 $('#message').hide();
