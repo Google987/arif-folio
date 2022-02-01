@@ -36,7 +36,7 @@ gql(GET_USER_ARTICLES, { page: 0 })
     .then(result => {
         const articles = result.data.user.publication.posts;
 
-        $(".post-box").each(function(i){
+        $("#blog .post-box").each(function(i){
             // console.log($(this));
             $(this).find("img").attr("src", articles[i].coverImage);
             $(this).find(".date").html("<i class='fa fa-heart-o'></i> " + articles[i].totalReactions);
