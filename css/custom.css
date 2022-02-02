@@ -40,3 +40,100 @@
 }
 
 .java-logo{ width: 50px; height: 50px;}
+
+
+.timeline {
+    position: relative;
+    display: block;
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 2px;
+    height: 95%;
+    background-color: #e3e5e9;
+}
+
+.timeline li {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: -8px;
+    width: 18px;
+    height: 18px;
+    background-color: #747474;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+
+.timeline li .title {
+    width: 160px;
+    padding: 6px 20px;
+    background-color: #747474;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 30px 0 60px 30px;
+}
+
+.timeline li .details {
+    background-color: #f4f5f8;
+    margin-top: 8px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.timeline li .details h5,
+.timeline li .details p {
+    margin-bottom: 0;
+}
+
+.timeline li .details small {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+
+.progress-wrapper {
+    display: block;
+    margin: 10px 0;
+}
+
+.progress-wrapper .caption {
+    font-weight: 500;
+}
+
+.progress {
+    margin-top: 5px;
+    height: 1.25rem;
+    border: 2px solid #fff;
+    background-color: #fff;
+    box-shadow: 0 0 0 2px #747474;
+}
+
+.progress,
+.progress-bar {
+    border-radius: 30px;
+}
+
+.progress-bar {
+    font-size: 12px;
+    background-color: #747474;
+}
