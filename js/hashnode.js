@@ -74,7 +74,7 @@ function lazyload(){
     var wb = wt + $(window).height();  //* bottom of the window
  
     $("#blog").each(function(){
-       var ot = $(this).offset().top;  //* top of object (i.e. advertising div)
+       var ot = $(this).offset().top - 200;  //* top of object (minus 200)
        var ob = ot + $(this).height(); //* bottom of object
  
        if(!$(this).attr("loaded") && wt<=ob && wb >= ot){
