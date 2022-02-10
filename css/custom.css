@@ -82,7 +82,7 @@
 }
 
 .timeline li .title {
-    width: 160px;
+    width: fit-content;
     padding: 6px 20px;
     background-color: #747474;
     color: #fff;
