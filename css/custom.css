@@ -220,3 +220,19 @@
         margin: 5px 5px;
     }
   }
+
+  .social-menu-2 ul{
+      position: relative;
+      transform: none;
+      left: 0;
+  }
+  .social-menu-2 ul li a{
+      width: 30px; height: 30px;
+  }
+  .social-menu-2 ul li .fa{
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .social-menu-2 ul li{
+    margin: 5px 5px;
+  }
