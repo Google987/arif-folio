@@ -848,6 +848,7 @@ xclip
 
 .testimonial img {
     max-width: 55px;
+    border-radius: 50%;
 }
 
 .testimonial small {
