@@ -1,0 +1,26 @@
+#tray{
+  text-align: center;
+}
+#input_image_container{
+  text-align: center;
+}
+.custombutton{
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+}
+
+.custombutton input[type=file]{
+  line-height: 43px;
+}
+
+#input_image{
+  width: 250px;
+  height: 250px;
+}
+
+#output_text{
+  text-align: center;
+  font-weight: bold;
+}
