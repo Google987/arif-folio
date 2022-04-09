@@ -7,6 +7,7 @@ function display(event) {
 
 //Predict emotion and display output
 async function predict_emotion() {
+    document.getElementById("output_text").innerHTML = "<p>Predicting.....</p>";
     let input = document.getElementById("input_image");
     //Preprocessing steps 
     /*
@@ -39,7 +40,7 @@ async function predict_emotion() {
                 progressBars[i].innerHTML = (data[i] * 100).toFixed(2) + "%";
             }
             EMOTION_DETECTED = emotions[max_val_index];
-            document.getElementById("output_text").innerHTML = "<p>Food detected: " + EMOTION_DETECTED + "(" + (max_val * 100).toFixed(2) + "% probability)</p>"
+            document.getElementById("output_text").innerHTML = "<p>Food detected: " + EMOTION_DETECTED + "(" + (max_val * 100).toFixed(2) + "% probability)</p>";
         })
 
 }
