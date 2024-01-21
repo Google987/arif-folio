@@ -36,7 +36,7 @@ const GET_USER_ARTICLES = `
 `;
 
 function setBlogs(){
-    gql(GET_USER_ARTICLES, { page: 0 })
+    gql(GET_USER_ARTICLES, { page: 1 })
         .then(result => {
             const articles = result.data.user.posts.nodes;
 
