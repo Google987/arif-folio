@@ -15,39 +15,42 @@ async function gql(query, variables={}) {
 
 const GET_USER_ARTICLES = `
     query GetUserArticles($page: Int!) {
-        user(username: "alittlecoding") {
-            publication {
-                posts(page: $page) {
-                    title
-                    brief
-                    slug
-                    coverImage
-                    totalReactions
-                    dateAdded
-                    dateUpdated
-                    responseCount
-                }
+      user(username: "alittlecoding") {
+        posts(page: $page, pageSize: 3) {
+          nodes {
+            title
+            brief
+            slug
+            coverImage {
+              attribution
+              photographer
             }
+            reactionCount
+            updatedAt
+            publishedAt
+            responseCount
+          }
         }
+      }
     }
 `;
 
 function setBlogs(){
     gql(GET_USER_ARTICLES, { page: 0 })
         .then(result => {
-            const articles = result.data.user.publication.posts;
+            const articles = result.data.user.posts.nodes;
 
             $("#blog .post-box").each(function(i){
                 // console.log($(this));
-                $(this).find("img").attr("src", articles[i].coverImage);
-                $(this).find(".date").html("<i class='fa fa-heart-o'></i> " + articles[i].totalReactions);
+                $(this).find("img").attr("src", articles[i].coverImage.url);
+                $(this).find(".date").html("<i class='fa fa-heart-o'></i> " + articles[i].reactionCount);
                 $(this).find("h4").text(articles[i].title);
                 $(this).find("p").text(articles[i].brief.slice(0, 200) + "...");
                 $(this).css('cursor', 'pointer');
                 $(this).click(function(){
                     window.open(`https://alittlecoding.com/${articles[i].slug}`, "_blank");
                 });
-                let postDate = articles[i].dateUpdated || articles[i].dateAdded;
+                let postDate = articles[i].updatedAt || articles[i].publishedAt;
                 let splitedDate = postDate.slice(0, 10).split('-');
                 let months = ["", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 let strDate = months[Number(splitedDate[1])] + " " + splitedDate[2] + ", " + splitedDate[0];
