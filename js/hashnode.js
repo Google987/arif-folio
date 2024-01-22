@@ -22,8 +22,7 @@ const GET_USER_ARTICLES = `
             brief
             slug
             coverImage {
-              attribution
-              photographer
+              url
             }
             reactionCount
             updatedAt
